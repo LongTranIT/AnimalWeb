@@ -37,12 +37,11 @@
                 <div class="body-container">
                     <div class="body-container__item">
                         <div class="body-container__toggle--img">
-                            <div
+                            <img
                                 class="body-container__img"
-                                style="
-                                    background-image: url(./src/assets/img/Microhyla\ heymonsii-LQNgon-003\ -\ Ngôn\ Lâm\ Quang.jpg);
-                                "
-                            ></div>
+                                src="./src/assets/img/frog-gc48891e5a_1920.jpg"
+                                onclick="onClick(this)"
+                            ></img>
                             <div class="body-container__sub">
                                 <div
                                     class="body-container__sub--img"
@@ -151,10 +150,20 @@
                 </div>
             </div>
             <!-- END FOOTER -->
+            <div id="modal01" class="w3-modal" onclick="this.style.display='none'">
+                <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
+                <div class="w3-modal-content w3-animate-zoom">
+                  <img id="img01" style="width:100%">
+                </div>
+              </div>
         </div>
     </body>
 
     <script>
+        function onClick(element) {
+                document.getElementById("img01").src = element.src;
+                document.getElementById("modal01").style.display = "block";
+        }
         function myFunction() {
             let img = document.querySelector("#body .body-container__img");
             let subImg = document.querySelector("#body .body-container__sub");
