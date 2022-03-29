@@ -1,0 +1,76 @@
+<h1 style="text-align: center;">Location of .....</h1>
+<div id="map" style="height: 75vh;"></div>
+<script>
+    function initMap() {
+        map = new google.maps.Map(document.querySelector('#map'), {
+            center: { lat: 10.030007654060755, lng: 105.7706260288509 }, //Tam cua map
+            zoom: 17.5,
+            mapId: 'fbbba766eb3ab17f',
+            mapTypeControl: false,
+            fullscreenControl: false,
+            streetViewControl: false
+        });
+
+
+        //Name
+        //Latitude, Longitude
+        //Image URL
+        //scaledSize width, height
+        const markers = [
+            [
+                "Khoa CNTT",
+                10.030863824926437,
+                105.76898368262032,
+                "/assets/img/school.svg",
+                38, 31
+            ],
+            [
+                "Đoàn Thanh niên",
+                10.030765186481833,
+                105.76944917668786,
+                "/assets/img/hat.svg",
+                40, 40
+            ],
+            [
+                "Nhà Điều Hành",
+                10.029935461878964,
+                105.77060996574002,
+                "/assets/img/school.png",
+                45, 45
+            ],
+            [
+                "Nhà Học C1",
+                10.030910243007835,
+                105.7702741028859,
+                "/assets/img/C1.png",
+                40, 40
+            ]
+        ];
+
+        for (let i = 0; i < markers.length; i++) {
+            const currMarker = markers[i];
+            const marker = new google.maps.Marker({
+                position: { lat: currMarker[1], lng: currMarker[2] },
+                map,
+                title: currMarker[0],
+                icon: {
+                    url: currMarker[3],
+                    scaledSize: new google.maps.Size(currMarker[4], currMarker[5]),
+                },
+                animation: google.maps.Animation.DROP
+            });
+
+            var infoWindow = new google.maps.InfoWindow();
+            // Add a click listener for each marker, and set up the info window.
+            marker.addListener("click", () => {
+                infoWindow.close();
+                infoWindow.setContent(marker.getTitle());
+                infoWindow.open(marker.getMap(), marker);
+            });
+        }
+
+    }
+</script>
+<script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDH5Edi7HSN5GfvpFawwbx5uteX5GbqePQ&mapids=fbbba766eb3ab17f&callback=initMap">
+</script>
