@@ -25,6 +25,7 @@
     flex-flow: column;
     justify-content: center;
     align-items: center;
+
 }
 
 #carouselExampleIndicators{
@@ -37,6 +38,10 @@
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
+}
+
+.item-img{
+    border-radius: 8px;
 }
 
 #body .body-container__name {
