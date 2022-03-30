@@ -1,4 +1,6 @@
 
+const dotenv = require('dotenv/config');
+
 class AnimalController{
     //[GET] /
     showHome(req,res){
@@ -17,7 +19,8 @@ class AnimalController{
         res.render('aboutUS');
     }
     map(req,res){
-        res.render('map');
+        const key=process.env.MAP_API_KEY+"";
+        res.render('map',{key});
     }
 }
 
