@@ -19,6 +19,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));//middleware
 
+//Connect to database
+const db=require('./app/config/db');
+db.connect();
+
 route(app);
 
 app.listen(port, () => {

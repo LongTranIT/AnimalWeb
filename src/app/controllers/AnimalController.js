@@ -1,5 +1,6 @@
 
 const dotenv = require('dotenv/config');
+const Animal =require('../models/Animal');
 
 class AnimalController{
     //[GET] /
@@ -7,7 +8,11 @@ class AnimalController{
         res.render('home');
     }
     showDiscover(req,res){
-        res.render('discover');
+        Animal.find({})
+            .lean()
+            .limit(6)
+            .then(data=>res.render('discover',{data}))
+            .catch(err=>res.json(err))
     }
     showInfo(req,res){
         res.render('info');
