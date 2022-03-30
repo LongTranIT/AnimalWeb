@@ -25,7 +25,7 @@ html {
 
 body{
     height: 100vh;
-    overflow: hidden;
+    overflow: auto;
 }
 
 * {
@@ -182,7 +182,7 @@ caption {
     justify-content: space-around;
     align-items: center;
 
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
 }
