@@ -182,7 +182,7 @@ caption {
     justify-content: space-around;
     align-items: center;
 
-    position: fixed;
+    position: absolute;
     bottom: 0;
     width: 100%;
 }

@@ -1,8 +1,8 @@
 #body-info {
-    height: 100vh;
+    height: 80vh;
     display: block;
     /* padding-top: var(--header-height); */
-    padding-bottom: 160px;
+    /* padding-bottom: 160px; */
     position: relative;
 }
 

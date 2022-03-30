@@ -1,9 +1,10 @@
 #body {
-    height: 100vh-160px;
+    height: 80vh;
     display: block;
     /* padding-top: var(--header-height); */
     /* padding-bottom: 160px; */
     position: relative;
+    overflow: hidden;
 }
 
 #body .body-container {
@@ -20,7 +21,7 @@
     width: calc((100% - 48px - 48px) / 3);
     height: calc((100% - 32px -32px) / 2);
     /* padding-bottom: 24px; */
-    margin-bottom: 24px;
+    margin-bottom: 2vh;
     display: flex;
     flex-flow: column;
     justify-content: center;
