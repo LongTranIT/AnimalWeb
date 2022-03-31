@@ -5,7 +5,7 @@ const router=express.Router();
 const animalController=require('../app/controllers/AnimalController');
 
 router.get('/',animalController.showHome);
-router.get('/discover',animalController.showDiscover);
+router.get('/discover/:page',animalController.showDiscover);
 router.get('/info/:slug',animalController.showInfo);
 router.get('/search',animalController.search);
 router.get('/aboutus',animalController.aboutUs);

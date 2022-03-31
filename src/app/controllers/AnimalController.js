@@ -6,7 +6,9 @@ class AnimalController {
     showHome(req, res) {
         res.render("home");
     }
-    showDiscover(req, res) {
+
+    //[GET] /discover/:page?queryParams
+    showDiscover(req,res){
         let query={};
         let search="";
         if (req.query.hasOwnProperty("q")) {
@@ -33,25 +35,39 @@ class AnimalController {
             query.conservation_status_red_book_vn= req.query.conservation_status_red_book_vn;
             search += req.query.conservation_status_red_book_vn+"-";
         } 
-        Animal.find(query)
+        let page = req.params.page ;
+        let limitPage = req.query.limitPage || 6;
+        Promise.all([
+            Animal.find(query)
                 .lean()
-                .limit(6)
-                .then((data) => res.render("discover", { data, search }))
-                .catch((err) => res.json(err));
+                .skip((limitPage * page) - limitPage)
+                .limit(limitPage),
+            Animal.countDocuments(query)
+        ])
+            .then(([animals,totalDocument])=>res.render('discover',{
+                data:animals,
+                currentPage: parseInt(page),
+                totalPage: Math.ceil(totalDocument / limitPage),
+                search
+            }))
     }
 
+    //[GET] /info/:slug
     showInfo(req, res) {
         Animal.findOne({ slug: req.params.slug })
             .lean()
             .then((animal) => res.render("info", { animal }))
             .catch((err) => res.json(err));
     }
+    //[GET] /search
     search(req, res) {
         res.render("search");
     }
+    //[GET] /aboutus
     aboutUs(req, res) {
         res.render("aboutUS");
     }
+    //[GET] /map
     map(req, res) {
         const key = process.env.MAP_API_KEY + "";
         res.render("map", { key });

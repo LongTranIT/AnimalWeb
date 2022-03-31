@@ -1,8 +1,8 @@
 function openDivImage(element) {
-    fullUrl=element.style.backgroundImage;
-    firstIndexUrl=fullUrl.indexOf('"');
-    lastIndexUrl=fullUrl.lastIndexOf('"');
-    srcUrl=fullUrl.substring(firstIndexUrl+1,lastIndexUrl);
+    fullUrl = element.style.backgroundImage;
+    firstIndexUrl = fullUrl.indexOf('"');
+    lastIndexUrl = fullUrl.lastIndexOf('"');
+    srcUrl = fullUrl.substring(firstIndexUrl + 1, lastIndexUrl);
     console.log(srcUrl);
     document.getElementById("img01").src = srcUrl;
     document.getElementById("modal01").style.display = "block";
@@ -26,4 +26,14 @@ function myFunction() {
     imgBtn.classList.toggle("display-none");
     locationBtn.classList.toggle("display-none");
     toggleImg.classList.toggle("map");
+}
+
+var pageLinks = document.querySelectorAll('.page-link');
+href = window.location.href;
+beginQuery = href.indexOf('?');
+if (beginQuery !== -1) {
+    queryParams = href.substring(beginQuery);
+    pageLinks.forEach(link => {
+        link.href = link.href + queryParams;
+    });
 }
