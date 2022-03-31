@@ -8,12 +8,23 @@ class AnimalController{
         res.render('home');
     }
     showDiscover(req,res){
-        Animal.find({})
+        if(req.query.hasOwnProperty('q')){
+            const search=req.query.q;
+            Animal.find({vietnamse_name:{$regex: req.query.q, $options: 'i'}})
+            .lean()
+            .limit(6)
+            .then(data=>res.render('discover',{data,search}))
+            .catch(err=>res.json(err))
+        }
+        else{
+            Animal.find({})
             .lean()
             .limit(6)
             .then(data=>res.render('discover',{data}))
             .catch(err=>res.json(err))
+        }
     }
+        
     showInfo(req,res){
         Animal.findOne({slug:req.params.slug})
             .lean()
