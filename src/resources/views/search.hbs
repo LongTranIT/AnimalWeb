@@ -1,59 +1,97 @@
 <div id="body-main">
-    <form name="search" action="">
-        <div id="search">
-            <div class="search-group">
-                <label class="search-group__label" for="">
-                    Ngành:
-                </label>
-                <select class="search-group__input" name="" id="">
-                    <option disabled hidden selected value="--select--">--select--</option>
-                    <option value="">test</option>
-                </select>
-            </div>
-            <div class="search-group">
-                <label class="search-group__label" for="">
-                    Lớp:
-                </label>
-                <select class="search-group__input" name="" id="">
-                    <option disabled hidden selected value="--select--">--select--</option>
-                    <option value="">test</option>
-                </select>
-            </div>
-            <div class="search-group">
-                <label class="search-group__label" for="">
-                    Bộ:
-                </label>
-                <select class="search-group__input" name="" id="">
-                    <option disabled hidden selected value="--select--">--select--</option>
-                    <option value="">test</option>
-                </select>
-            </div>
-            <div class="search-group">
-                <label class="search-group__label" for="">
-                    Tình trạng:
-                </label>
-                <select class="search-group__input" name="" id="">
-                    <option disabled hidden selected value="--select--">--select--</option>
-                    <option value="">test</option>
-                </select>
-            </div>
-            <div class="search-group">
-                <label class="search-group__label" for="">
-                    Họ:
-                </label>
-                <select class="search-group__input" name="" id="">
-                    <option disabled hidden selected value="--select--">--select--</option>
-                    <option value="">test</option>
-                </select>
-            </div>
-        </div>
-        <button class="search__btn" type="submit">Tìm kiếm</button>
+  <form name="search" action="/discover" method="get">
+    <div id="search">
+      <div class="search-group">
+        <label class="search-group__label" for="">
+          Ngành:
+        </label>
+        <select class="search-group__input" id="" name="phylum">
+          <option
+            disabled
+            hidden
+            selected
+            value="--select--"
+          >--select--</option>
+          <option value="Động vật có dây sống (chordata)">Động vật có dây sống (chordata)</option>
+        </select>
+      </div>
+      <div class="search-group">
+        <label class="search-group__label" for="">
+          Lớp:
+        </label>
+        <select class="search-group__input" name="class" id="">
+          <option
+            disabled
+            hidden
+            selected
+            value="--select--"
+          >--select--</option>
+          <option value="AMPHIBIA (Linnaeus, 1758)">AMPHIBIA (Linnaeus, 1758)</option>
+          <option value="REPTILIA LAURENTI, 1768">REPTILIA LAURENTI, 1768</option>
+        </select>
+      </div>
+      <div class="search-group">
+        <label class="search-group__label" for="">
+          Bộ:
+        </label>
+        <select class="search-group__input" name="order" id="">
+          <option
+            disabled
+            hidden
+            selected
+            value="--select--"
+          >--select--</option>
+          <option value="GYMNOPHIONA (Muller, 1832)">GYMNOPHIONA (Muller, 1832)</option>
+          <option value="ANURA (Fischer, 1813)">ANURA (Fischer, 1813)</option>
+          <option value="SQUAMATA OPPEL, 18411">SQUAMATA OPPEL, 18411</option>
+        </select>
+      </div>
+      <div class="search-group">
+        <label class="search-group__label" for="">
+          Tình trạng:
+        </label>
+        <select class="search-group__input" name="conservation_status_red_book_vn" id="">
+          <option
+            disabled
+            hidden
+            selected
+            value="--select--"
+          >--select--</option>
+          <option value="Không có giá trị bảo tồn">Không có giá trị bảo tồn</option>
+          <option value="Sắp nguy cấp">Sắp nguy cấp</option>
+        </select>
+      </div>
+      <div class="search-group">
+        <label class="search-group__label" for="">
+          Họ:
+        </label>
+        <select class="search-group__input" name="family" id="">
+          <option
+            disabled
+            hidden
+            selected
+            value="--select--"
+          >--select--</option>
+          <option value="Ichthyophiidae Taylor, 1968">Ichthyophiidae Taylor, 1968</option>
+          <option value="Bufonidae Gray, 1825">Bufonidae Gray, 1825</option>
+          <option value="Microhylidae (Cóc miệng nhỏ)">Microhylidae (Cóc miệng nhỏ)</option>
+          <option value="Ranidae Rafinesque, 1814">Ranidae Rafinesque, 1814</option>
+          <option value="Dicroglossidae Anderson, 1871">Dicroglossidae Anderson, 1871</option>
+          <option value="Lacertidae Gray, 1825">Lacertidae Gray, 1825</option>
+          <option value="Scincidae Opell, 1811">Scincidae Opell, 1811</option>
+          <option value="Pythonidae Fitzinger, 1826">Pythonidae Fitzinger, 1826</option>
+          <option value="Agamidae Gray, 1827">Agamidae Gray, 1827</option>
+        </select>
+      </div>
+    </div>
+    <button class="search__btn" type="submit">Tìm kiếm</button>
 
-    </form>
+  </form>
 </div>
 
 <script>
-    const mainElement=document.querySelector('#main');
-    mainElement.style.backgroundImage ="url('/assets/img/Microhylaheymonsii-LQNgon-003.jpg')";
-    console.log(mainElement);
+  const mainElement=document.querySelector('#main');
+  mainElement.style.backgroundImage
+  ="url('/assets/img/Microhylaheymonsii-LQNgon-003.jpg')";
+  console.log(mainElement);
 </script>

@@ -23,7 +23,7 @@ html {
     box-sizing: border-box;
 }
 
-body{
+body {
     height: 100vh;
     overflow: auto;
 }
@@ -41,7 +41,7 @@ ul {
 
 a {
     text-decoration: none !important;
-    color: inherit ;
+    color: inherit;
     cursor: pointer;
     /* display: block; */
 }
@@ -53,23 +53,28 @@ td {
     border-collapse: collapse;
     border: 1px solid #ccc;
 }
+
 table {
     width: 100%;
     margin-top: 30px;
 }
+
 th {
     height: 52px;
     background-color: rgba(15, 110, 182, 0.3);
     border: 1px solid #999;
 }
+
 tr:nth-child(odd) {
     background-color: rgba(233, 240, 240, 0.4);
 }
+
 td {
     font-size: 1.3rem;
     height: 2.5rem;
     padding: 8px 4px;
 }
+
 caption {
     padding: 18px 0;
 }
