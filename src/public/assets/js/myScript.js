@@ -1,4 +1,13 @@
-function onClick(element) {
+function openDivImage(element) {
+    fullUrl=element.style.backgroundImage;
+    firstIndexUrl=fullUrl.indexOf('"');
+    lastIndexUrl=fullUrl.lastIndexOf('"');
+    srcUrl=fullUrl.substring(firstIndexUrl+1,lastIndexUrl);
+    console.log(srcUrl);
+    document.getElementById("img01").src = srcUrl;
+    document.getElementById("modal01").style.display = "block";
+}
+function openImgImage(element) {
     document.getElementById("img01").src = element.src;
     document.getElementById("modal01").style.display = "block";
 }

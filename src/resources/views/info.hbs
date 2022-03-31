@@ -2,18 +2,18 @@
     <div class="body-info-container">
         <div class="body-info-container__item">
             <div class="body-info-container__toggle--img">
-                <img class="body-info-container__img" src="/assets/img/frog-gc48891e5a_1920.jpg"
-                    onclick="onClick(this)"></img>
+                <img class="body-info-container__img" src="/assets{{animal.photos.[0]}}"
+                    onclick="openImgImage(this)"></img>
                 <div class="body-info-container__sub">
                     <div class="body-info-container__sub--img" style="
-                                        background-image: url(/assets/img/Microhylaheymonsii-LQNgon-003.jpg);
-                                    "></div>
+                                        background-image: url('/assets{{animal.photos.[1]}}');
+                                    "onclick="openDivImage(this)"></div>
                     <div class="body-info-container__sub--img" style="
-                                        background-image: url(/assets/img/Microhylaheymonsii-LQNgon-003.jpg);
-                                    "></div>
+                                        background-image: url('/assets{{animal.photos.[2]}}');
+                                    "onclick="openDivImage(this)"></div>
                     <div class="body-info-container__sub--img" style="
-                                        background-image: url(/assets/img/Microhylaheymonsii-LQNgon-003.jpg);
-                                    "></div>
+                                        background-image: url('/assets{{animal.photos.[3]}}');
+                                    "onclick="openDivImage(this)"></div>
                 </div>
             </div>
 
@@ -35,37 +35,19 @@
         </div>
         <div class="body-info-container__item">
             <div class="body-info-container__item--text">
-                Tên khoa học: Microhyla heymonsii Vogt, 1911
+                Tên khoa học: {{animal.science_name}}
             </div>
             <div class="body-info-container__item--text">
-                Tên địa phương: Nhái bầu heymon
+                Tên địa phương: {{animal.vietnamse_name}}
             </div>
             <div class="body-info-container__item--text">
-                Ngành: Động vật có dây sống (chordata)
+                Ngành: {{animal.phylum}}
             </div>
             <div class="body-info-container__item--text2">
                 Đặc điểm: <br />
 
                 <div class="body-info-container__item--text2--des">
-                    Cơ thể được bao phủ bởi các vảy dạng hạt nhỏ lẫn với
-                    một vài vảy trơn tròn hoặc hơi có dạng sóng, nốt sần
-                    hình nón; con đực có một chuỗi liên tiếp các lỗ
-                    trước huyệt, 14-19 lỗ ở mỗi bên; 2 cặp vảy sau môi
-                    dưới, cặp bên ngoài lớn tương tự cặp bên trong, cả 2
-                    đều chạm vảy hàm dưới; trên đuôi có các nốt sần dạng
-                    gai cao xếp theo hình xoắn ốc chạm vảy hàm dưới;
-                    trên đuôi có các nốt sần dạng gai cao xếp theo hình
-                    xoắn ốc chạm vảy hàm dưới; trên đuôi có các nốt sần
-                    dạng gai cao xếp theo hình xoắn ốc chạm vảy hàm
-                    dưới; trên đuôi có các nốt sần dạng gai cao xếp theo
-                    hình xoắn ốc chạm vảy hàm dưới; trên đuôi có các nốt
-                    sần dạng gai cao xếp theo hình xoắn ốc chạm vảy hàm
-                    dưới; trên đuôi có các nốt sần dạng gai cao xếp theo
-                    hình xoắn ốc chạm vảy hàm dưới; trên đuôi có các nốt
-                    sần dạng gai cao xếp theo hình xoắn ốc àm dưới; trên
-                    đuôi có các nốt sần dạng gai cao xếp theo hình xoắn
-                    ốc chạm vảy hàm dưới; trên đuôi có các nốt sần dạng
-                    gai cao xếp theo hình xoắn ốc
+                    {{animal.morphological_detail}}
                 </div>
             </div>
         </div>

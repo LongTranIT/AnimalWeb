@@ -15,7 +15,10 @@ class AnimalController{
             .catch(err=>res.json(err))
     }
     showInfo(req,res){
-        res.render('info');
+        Animal.findOne({slug:req.params.slug})
+            .lean()
+            .then(animal=>res.render('info',{animal}))
+            .catch(err=>res.json(err))
     }
     search(req,res){
         res.render('search');

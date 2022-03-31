@@ -3,7 +3,7 @@
     {{#each data}}
       {{#with this as |animal|}}
         <div class="body-container__item">
-          <a href="/info">
+          <a href="/info/{{animal.slug}}">
             <div
               id="carouselExampleIndicators{{animal.id}}"
               class="carousel slide body-container__img"
