@@ -1,0 +1,57 @@
+<h1 style="text-align: center;">Vị trí tất cả các động vật trong khu bảo tồn</h1>
+<div id="map" style="height: 75vh;"></div>
+<script>
+    function initMap() {
+        //Create Map
+        map = new google.maps.Map(document.querySelector('#map'), {
+            center: { lat: 9.570000, lng: 105.747798  }, //Tam cua map
+            zoom: 16,
+            mapId: 'fbbba766eb3ab17f',
+            mapTypeControl: false,
+            fullscreenControl: false,
+            streetViewControl: false
+        });
+        {{#each animals}}
+            var locations=[];
+            {{#each this.coordinations}}
+                locations.push("{{this}}");
+            {{/each}}
+            locations=locations.map(locate=>{
+                locate=locate.replace(' N','');
+                locate=locate.replace(' E','');
+                marker=[];
+                lng=locate.substring(locate.indexOf(',')+1);
+                lat=locate.substring(0,locate.indexOf(','));
+                marker.push(parseFloat(lat));
+                marker.push(parseFloat(lng));
+                return marker;
+            })
+            var markers=locations;
+
+            for (let i = 0; i < markers.length; i++) {
+                const currMarker = markers[i];
+                const marker = new google.maps.Marker({
+                    position: { lat: currMarker[0], lng: currMarker[1] },
+                    map,
+                    title: "{{this.vietnamse_name}}",
+                    icon: {
+                        url: "/assets/img/Frog8.svg",
+                        scaledSize: new google.maps.Size(30, 30),
+                    },
+                    animation: google.maps.Animation.DROP
+                });
+
+                var infoWindow = new google.maps.InfoWindow();
+                // Add a click listener for each marker, and set up the info window.
+                marker.addListener("click", () => {
+                    infoWindow.close();
+                    infoWindow.setContent(marker.getTitle());
+                    infoWindow.open(marker.getMap(), marker);
+                });
+            }
+        {{/each}}
+    }
+</script>
+<script
+    src="https://maps.googleapis.com/maps/api/js?key={{key}}&mapids=fbbba766eb3ab17f&callback=initMap">
+</script>

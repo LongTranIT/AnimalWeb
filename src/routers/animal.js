@@ -10,5 +10,5 @@ router.get('/info/:slug',animalController.showInfo);
 router.get('/search',animalController.search);
 router.get('/aboutus',animalController.aboutUs);
 router.get('/map/:slug',animalController.mapDetail);
-router.get('/map',animalController.map);
+router.get('/map',animalController.mapAll);
 module.exports=router;

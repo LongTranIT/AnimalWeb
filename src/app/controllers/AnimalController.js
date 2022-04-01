@@ -73,15 +73,20 @@ class AnimalController {
         Animal.findOne({slug:req.params.slug})
             .lean()
             .then((animal) => {
-                res.render("map", { key,locations:animal.coordinations,name:animal.vietnamse_name})
+                res.render("mapDetail", { key,locations:animal.coordinations,name:animal.vietnamse_name})
             })
             .catch((err) => res.json(err));
         // res.render("map", { key });
     }
     //[GET] /map
-    map(req, res) {
+    mapAll(req, res) {
         const key = process.env.MAP_API_KEY + "";
-        res.render("map", { key });
+        Animal.find({},{vietnamse_name:1,coordinations:1, _id:0})
+            .lean()
+            .then(animals=>{
+                res.render('mapAll',{key,animals})
+            })
+            .catch(err=>res.json(err));
     }
 }
 
