@@ -1,10 +1,26 @@
-<h1 style="text-align: center;">Location of .....</h1>
+<h1 style="text-align: center;">Location of {{name}}</h1>
 <div id="map" style="height: 75vh;"></div>
 <script>
     function initMap() {
+        //Load locations from api 
+        let locations=[];
+        {{#each locations}}
+            locations.push("{{this}}");
+        {{/each}}
+        locations=locations.map(locate=>{
+            locate=locate.replace(' N','');
+            locate=locate.replace(' E','');
+            marker=[];
+            lng=locate.substring(locate.indexOf(',')+1);
+            lat=locate.substring(0,locate.indexOf(','));
+            marker.push(parseFloat(lat));
+            marker.push(parseFloat(lng));
+            return marker;
+        })
+
         map = new google.maps.Map(document.querySelector('#map'), {
-            center: { lat: 10.030007654060755, lng: 105.7706260288509 }, //Tam cua map
-            zoom: 17.5,
+            center: { lat: locations[0][0], lng: locations[0][1]  }, //Tam cua map
+            zoom: 15,
             mapId: 'fbbba766eb3ab17f',
             mapTypeControl: false,
             fullscreenControl: false,
@@ -12,50 +28,17 @@
         });
 
 
-        //Name
-        //Latitude, Longitude
-        //Image URL
-        //scaledSize width, height
-        const markers = [
-            [
-                "Khoa CNTT",
-                10.030863824926437,
-                105.76898368262032,
-                "/assets/img/school.svg",
-                38, 31
-            ],
-            [
-                "Đoàn Thanh niên",
-                10.030765186481833,
-                105.76944917668786,
-                "/assets/img/hat.svg",
-                40, 40
-            ],
-            [
-                "Nhà Điều Hành",
-                10.029935461878964,
-                105.77060996574002,
-                "/assets/img/school.png",
-                45, 45
-            ],
-            [
-                "Nhà Học C1",
-                10.030910243007835,
-                105.7702741028859,
-                "/assets/img/C1.png",
-                40, 40
-            ]
-        ];
+        const markers=locations;
 
         for (let i = 0; i < markers.length; i++) {
             const currMarker = markers[i];
             const marker = new google.maps.Marker({
-                position: { lat: currMarker[1], lng: currMarker[2] },
+                position: { lat: currMarker[0], lng: currMarker[1] },
                 map,
-                title: currMarker[0],
+                title: "{{name}}",
                 icon: {
-                    url: currMarker[3],
-                    scaledSize: new google.maps.Size(currMarker[4], currMarker[5]),
+                    url: "/assets/img/Frog8.svg",
+                    scaledSize: new google.maps.Size(30, 30),
                 },
                 animation: google.maps.Animation.DROP
             });

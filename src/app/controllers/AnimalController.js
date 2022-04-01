@@ -67,6 +67,17 @@ class AnimalController {
     aboutUs(req, res) {
         res.render("aboutUS");
     }
+    //[GET] /map/:slug
+    mapDetail(req, res) {
+        const key = process.env.MAP_API_KEY + "";
+        Animal.findOne({slug:req.params.slug})
+            .lean()
+            .then((animal) => {
+                res.render("map", { key,locations:animal.coordinations,name:animal.vietnamse_name})
+            })
+            .catch((err) => res.json(err));
+        // res.render("map", { key });
+    }
     //[GET] /map
     map(req, res) {
         const key = process.env.MAP_API_KEY + "";
