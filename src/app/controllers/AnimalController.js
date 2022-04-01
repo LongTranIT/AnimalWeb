@@ -73,7 +73,7 @@ class AnimalController {
         Animal.findOne({slug:req.params.slug})
             .lean()
             .then((animal) => {
-                res.render("mapDetail", { key,locations:animal.coordinations,name:animal.vietnamse_name})
+                res.render("mapDetail", { key,locations:animal.coordinations,name:animal.vietnamse_name,icon:animal.icon})
             })
             .catch((err) => res.json(err));
         // res.render("map", { key });
@@ -81,7 +81,7 @@ class AnimalController {
     //[GET] /map
     mapAll(req, res) {
         const key = process.env.MAP_API_KEY + "";
-        Animal.find({},{vietnamse_name:1,coordinations:1, _id:0})
+        Animal.find({},{vietnamse_name:1,coordinations:1, icon:1, _id:0})
             .lean()
             .then(animals=>{
                 res.render('mapAll',{key,animals})

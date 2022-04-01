@@ -28,6 +28,7 @@ const Animal=new Schema({
     collection_date:String,
     collection_person:String,
     slug:String,
+    icon:String,
 },{
     timestamps:true
 })

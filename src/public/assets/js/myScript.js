@@ -3,7 +3,6 @@ function openDivImage(element) {
     firstIndexUrl = fullUrl.indexOf('"');
     lastIndexUrl = fullUrl.lastIndexOf('"');
     srcUrl = fullUrl.substring(firstIndexUrl + 1, lastIndexUrl);
-    console.log(srcUrl);
     document.getElementById("img01").src = srcUrl;
     document.getElementById("modal01").style.display = "block";
 }
@@ -37,3 +36,19 @@ if (beginQuery !== -1) {
         link.href = link.href + queryParams;
     });
 }
+
+//Active navbar base url
+setNavigation();
+
+function setNavigation() {
+    var path = window.location.pathname;
+    path = path.replace(/\/$/, "");
+    path = decodeURIComponent(path);
+
+    $(".header-right a").each(function () {
+        var href = $(this).attr('href');
+        if (path.substring(0, href.length-1) === href.substring(0,href.length-1)) {
+            $(this).addClass('active');
+        }
+    });
+};

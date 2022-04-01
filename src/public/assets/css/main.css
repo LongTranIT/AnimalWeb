@@ -48,7 +48,8 @@
 	cursor: pointer;
 }
 
-#header .header-right__item:hover {
+#header .header-right__item:hover ,
+#header .header-right__item.active {
 	background-color: #55c598;
 	color: #fff;
 }
