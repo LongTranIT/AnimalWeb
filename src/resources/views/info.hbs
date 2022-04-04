@@ -7,28 +7,21 @@
                 <div class="body-info-container__sub">
                     <div class="body-info-container__sub--img" style="
                                         background-image: url('/assets{{animal.photos.[1]}}');
-                                    "onclick="openDivImage(this)"></div>
+                                    " onclick="openDivImage(this)"></div>
                     <div class="body-info-container__sub--img" style="
                                         background-image: url('/assets{{animal.photos.[2]}}');
-                                    "onclick="openDivImage(this)"></div>
+                                    " onclick="openDivImage(this)"></div>
                     <div class="body-info-container__sub--img" style="
                                         background-image: url('/assets{{animal.photos.[3]}}');
-                                    "onclick="openDivImage(this)"></div>
+                                    " onclick="openDivImage(this)"></div>
                 </div>
             </div>
 
             <div class="body-info-container__location">
-                <div class="body-info-container__location--item location-btn" onclick="myFunction()">
-                    <i class="fas fa-map-marked body-info-container__location--icon" ></i>
-                    <a class="body-info-container__location--text" href="/map/{{animal.slug}}">
+                <div class="body-info-container__location--item location-btn" onclick="location.href='/map/{{animal.slug}}'">
+                    <i class="fas fa-map-marked body-info-container__location--icon"></i>
+                    <div class="body-info-container__location--text" >
                         LOCATION
-                    </a>
-                </div>
-
-                <div class="body-info-container__location--item img-btn display-none" onclick="myFunction()">
-                    <i class="far fa-images body-info-container__location--icon"></i>
-                    <div class="body-info-container__location--text">
-                        IMAGE
                     </div>
                 </div>
             </div>
@@ -60,4 +53,3 @@
         <img id="img01" style="width:100%">
     </div>
 </div>
-
